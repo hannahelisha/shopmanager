@@ -10,10 +10,16 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-    'name',
-    'price',
-    'stock',
-    'description',
-    'image',
-];
+        'user_id',
+        'name',
+        'price',
+        'stock',
+        'description',
+        'image',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
