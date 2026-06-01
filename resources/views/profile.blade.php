@@ -2,7 +2,6 @@
 
 @section('content')
 
-{{-- Page Header --}}
 <div class="mb-4">
     <h4 class="fw-bold mb-0" style="color: #4a4a4a;">
         <i class="fas fa-user me-2" style="color: #e26d9f;"></i> My Profile
@@ -10,7 +9,6 @@
     <p class="text-muted small mb-0">Manage your profile information</p>
 </div>
 
-{{-- Toast Notification --}}
 @if(session('success'))
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
     <div id="successToast" class="toast show align-items-center text-white border-0"
@@ -83,7 +81,6 @@
                 Joined {{ $user->created_at->format('M d, Y') }}
             </p>
 
-            {{-- Ice Cream Preferences Summary --}}
             @if($user->ice_cream_preference || $user->serving_preference)
             <div class="p-3 rounded-3 text-start" style="background-color: #ffeef4;">
                 <p class="fw-bold small mb-2" style="color: #e26d9f;">
@@ -113,10 +110,8 @@
         </div>
     </div>
 
-    {{-- Right Column - Edit Forms --}}
     <div class="col-md-8">
 
-        {{-- Edit Profile Form --}}
         <div class="card mb-4">
             <div class="card-header text-white">
                 <h5 class="mb-0"><i class="fas fa-edit me-2"></i> Edit Profile</h5>
@@ -127,7 +122,6 @@
                     @csrf
                     @method('PUT')
 
-                    {{-- Avatar Upload --}}
                     <div class="mb-3">
                         <label class="form-label">Profile Picture</label>
                         <input type="file" name="avatar" class="form-control"
@@ -219,7 +213,6 @@
             </div>
         </div>
 
-        {{-- Change Password Form --}}
         <div class="card">
             <div class="card-header text-white">
                 <h5 class="mb-0"><i class="fas fa-lock me-2"></i> Change Password</h5>
