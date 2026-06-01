@@ -25,11 +25,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-    <a class="nav-link" href="{{ route('profile') }}"
-       style="color: white; font-family: 'Poppins', sans-serif;">
-        <i class="fas fa-user"></i> Profile
-    </a>
-</li>
+                        <a class="nav-link" href="{{ route('profile') }}"
+                           style="color: white; font-family: 'Poppins', sans-serif;">
+                           <i class="fas fa-user"></i> Profile
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <form action="/logout" method="POST" class="d-inline">
                             @csrf
