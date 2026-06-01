@@ -23,7 +23,6 @@
             </div>
             <div class="card-body p-4">
 
-                {{-- Error Messages --}}
                 @if($errors->any())
                     <div class="alert alert-danger">
                         <ul class="mb-0">
@@ -53,10 +52,10 @@
                     </div>
 
                     <div class="mb-3">
-    <label class="form-label">Stock Quantity</label>
-    <input type="number" name="stock" class="form-control"
-           value="{{ old('stock', $product->stock) }}"
-           placeholder="e.g. 50" min="0" required>
+                        <label class="form-label">Stock Quantity</label>
+                        <input type="number" name="stock" class="form-control"
+                               value="{{ old('stock', $product->stock) }}"
+                               placeholder="e.g. 50" min="0" required>
 </div>
 
                     <div class="mb-3">
@@ -73,7 +72,6 @@
                                id="imageUrl" oninput="previewImage()">
                     </div>
 
-                    {{-- Image Preview --}}
                     <div id="imagePreview" class="mb-3 text-center {{ $product->image ? '' : 'd-none' }}">
                         <p class="text-muted small mb-1">Image Preview:</p>
                         <img id="previewImg" src="{{ $product->image }}" alt="Preview"
