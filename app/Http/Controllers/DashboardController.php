@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $totalUsers    = User::count();
+        $totalUsers = User::count();
         $totalProducts = \App\Models\Product::count();
 
         return view('dashboard', compact('totalUsers', 'totalProducts'));
