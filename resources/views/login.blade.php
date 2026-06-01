@@ -9,14 +9,12 @@
             </div>
             <div class="card-body p-4">
 
-                {{-- Error Message --}}
                 @if(session('error'))
                     <div class="alert alert-danger">
                         <i class="fas fa-exclamation-circle me-2"></i>{{ session('error') }}
                     </div>
                 @endif
 
-                {{-- Success Message (from register) --}}
                 @if(session('success'))
                     <div class="alert alert-success">
                         <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
@@ -56,7 +54,6 @@
     </div>
 </div>
 
-{{-- Toast Notification --}}
 @if(session('success'))
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
     <div id="successToast" class="toast show align-items-center text-white border-0"
