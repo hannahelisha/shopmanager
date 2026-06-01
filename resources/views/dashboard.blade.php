@@ -2,7 +2,6 @@
 
 @section('content')
 
-{{-- Page Title --}}
 <div class="mb-4">
     <h4 class="fw-bold" style="color: #4a4a4a;">
         <i class="fas fa-tachometer-alt me-2" style="color: #e26d9f;"></i> Dashboard
@@ -10,10 +9,8 @@
     <p class="text-muted small">Welcome back! Here's what's happening in your shop 🍦</p>
 </div>
 
-{{-- Stats Cards --}}
 <div class="row g-4 mb-4">
 
-    {{-- Total Users --}}
     <div class="col-md-6">
         <div class="card h-100">
             <div class="card-body d-flex align-items-center gap-4 p-4">
@@ -29,7 +26,6 @@
         </div>
     </div>
 
-    {{-- Total Products --}}
     <div class="col-md-6">
         <div class="card h-100">
             <div class="card-body d-flex align-items-center gap-4 p-4">
@@ -47,10 +43,8 @@
 
 </div>
 
-{{-- Charts --}}
 <div class="row g-4">
 
-    {{-- Bar Chart --}}
     <div class="col-md-6">
         <div class="card">
             <div class="card-header text-white">
@@ -62,7 +56,6 @@
         </div>
     </div>
 
-    {{-- Doughnut Chart --}}
     <div class="col-md-6">
         <div class="card">
             <div class="card-header text-white">
@@ -76,10 +69,8 @@
 
 </div>
 
-{{-- Chart.js --}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Bar Chart
     const barCtx = document.getElementById('barChart').getContext('2d');
     new Chart(barCtx, {
         type: 'bar',
@@ -107,7 +98,6 @@
         }
     });
 
-    // Doughnut Chart
     const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
     new Chart(doughnutCtx, {
         type: 'doughnut',
