@@ -3,28 +3,28 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
-// Root Route
+// root route
 Route::get('/', function () {
     return redirect('/login');
 });
 
-// Register Routes
+// register routes
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
-// Login Routes
+// login routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
-// Logout Route
+// logout route
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Dashboard Route
+// dashboard route
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])
     ->middleware('auth')
     ->name('dashboard');
 
-// User Management Routes
+// uer management routes
 Route::middleware('auth')->group(function () {
     Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.destroy');
 });
 
-// Product Routes
+// product routes
 Route::middleware('auth')->group(function () {
     Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products.index');
     Route::get('/products/create', [App\Http\Controllers\ProductController::class, 'create'])->name('products.create');
@@ -44,10 +44,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/products/{product}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('products.destroy');
 });
 
-// Profile Routes
+// profile routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
     Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
     Route::put('/profile/password', [App\Http\Controllers\ProfileController::class, 'updatePassword'])->name('profile.password');
 });
-
