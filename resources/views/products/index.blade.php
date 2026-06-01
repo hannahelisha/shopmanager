@@ -2,7 +2,6 @@
 
 @section('content')
 
-{{-- Page Header --}}
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h4 class="fw-bold mb-0" style="color: #4a4a4a;">
@@ -15,7 +14,6 @@
     </a>
 </div>
 
-{{-- Toast Notification --}}
 @if(session('success'))
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
     <div id="successToast" class="toast show align-items-center text-white border-0"
@@ -37,7 +35,6 @@
 </script>
 @endif
 
-{{-- Products Grid --}}
 @if($products->isEmpty())
     <div class="text-center py-5">
         <i class="fas fa-ice-cream fa-4x mb-3" style="color: #e26d9f; opacity: 0.4;"></i>
@@ -67,20 +64,18 @@
                         ₱{{ number_format($product->price, 2) }}
                     </p>
                     <p class="mb-2 small">
-    <i class="fas fa-box me-1" style="color: #B7D3B0;"></i>
-    <span style="color: #4a4a4a;">Stock:</span>
-    <span class="fw-bold" style="color: #B7D3B0;">{{ $product->stock }}</span>
-</p>
+                        <i class="fas fa-box me-1" style="color: #B7D3B0;"></i>
+                        <span style="color: #4a4a4a;">Stock:</span>
+                        <span class="fw-bold" style="color: #B7D3B0;">{{ $product->stock }}</span>
+                    </p>
                     <p class="text-muted small mb-3">{{ $product->description }}</p>
 
                     <div class="d-flex gap-2">
-                        <a href="{{ route('products.edit', $product->id) }}"
-   class="btn btn-sm flex-fill"
-   style="background-color: #f4b183; color: white; border-radius: 20px;">
-    <i class="fas fa-edit"></i> Edit
-</a>
-<button type="button" class="btn btn-sm flex-fill"
-        style="background-color: #d96b7b; color: white; border-radius: 20px;"
+                        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm flex-fill" style="background-color: #f4b183; color: white; border-radius: 20px;">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <button type="button" class="btn btn-sm flex-fill" 
+                                style="background-color: #d96b7b; color: white; border-radius: 20px;"
                                 onclick="confirmDelete({{ $product->id }}, '{{ $product->name }}')">
                             <i class="fas fa-trash"></i> Delete
                         </button>
@@ -99,7 +94,6 @@
     </div>
 @endif
 
-{{-- Cute Delete Modal --}}
 <div class="modal fade" id="deleteModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="border-radius: 16px; border: none;">
