@@ -5,26 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nani Ga Suki?</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Font Awesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --matcha:            #B7D3B0;
-            --soft-pink-bg:      #ffeef4;
-            --strawberry:        #e26d9f;
-            --strawberry-hover:  #c9547a;
-            --card-header:       #e89ab5;
-            --text:              #4a4a4a;
-            --soft-white:        #ffffff;
-            --pastel-pink:       #FFD1DC;
-            --input-border:      #f0c0d0;
+            --matcha: #B7D3B0;
+            --soft-pink-bg: #ffeef4;
+            --strawberry: #e26d9f;
+            --strawberry-hover: #c9547a;
+            --card-header: #e89ab5;
+            --text: #4a4a4a;
+            --soft-white: #ffffff;
+            --pastel-pink: #FFD1DC;
+            --input-border: #f0c0d0;
         }
 
         * {
@@ -40,7 +37,6 @@
             min-height: 100vh;
         }
 
-        /* ── Navbar ── */
         .navbar {
             background-color: var(--matcha) !important;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -86,7 +82,6 @@
             transform: translateY(-1px);
         }
 
-        /* ── Cards ── */
         .card {
             border: none;
             border-radius: 16px;
@@ -115,7 +110,6 @@
             font-size: 0.85rem;
         }
 
-        /* ── Buttons ── */
         .btn-pink {
             background-color: var(--strawberry);
             color: white;
@@ -137,7 +131,6 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
         }
 
-        /* ── Form Controls ── */
         .form-control {
             background-color: white;
             border-radius: 10px;
@@ -163,7 +156,6 @@
             margin-bottom: 6px;
         }
 
-        /* ── Links ── */
         a {
             color: var(--strawberry);
             text-decoration: none;
@@ -175,13 +167,11 @@
             color: var(--strawberry-hover);
         }
 
-        /* ── Divider ── */
         hr {
             border-color: var(--pastel-pink);
             opacity: 0.6;
         }
 
-        /* ── Alerts ── */
         .alert-success {
             background-color: #d4edda;
             border-color: #c3e6cb;
@@ -198,7 +188,6 @@
             font-size: 0.9rem;
         }
 
-        /* ── Footer ── */
         .footer {
             text-align: center;
             padding: 20px;
@@ -211,20 +200,16 @@
 </head>
 <body>
 
-    {{-- Navbar --}}
     @include('navbar')
 
-    {{-- Main Content --}}
     <div class="container mt-5">
         @yield('content')
     </div>
 
-    {{-- Footer --}}
     <div class="footer">
         🍦 Nani Ga Suki? &copy; {{ date('Y') }} — Made with love
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
