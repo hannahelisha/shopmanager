@@ -2,7 +2,6 @@
 
 @section('content')
 
-{{-- Page Header --}}
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h4 class="fw-bold mb-0" style="color: #4a4a4a;">
@@ -23,7 +22,6 @@
             </div>
             <div class="card-body p-4">
 
-                {{-- Error Messages --}}
                 @if($errors->any())
                     <div class="alert alert-danger">
                         <ul class="mb-0">
@@ -52,11 +50,11 @@
                     </div>
 
                     <div class="mb-3">
-    <label class="form-label">Stock Quantity</label>
-    <input type="number" name="stock" class="form-control"
-           value="{{ old('stock') }}"
-           placeholder="e.g. 50" min="0" required>
-</div>
+                        <label class="form-label">Stock Quantity</label>
+                        <input type="number" name="stock" class="form-control"
+                        value="{{ old('stock') }}"
+                        placeholder="e.g. 50" min="0" required>
+                    </div>
 
                     <div class="mb-3">
                         <label class="form-label">Description</label>
@@ -72,7 +70,6 @@
                                id="imageUrl" oninput="previewImage()">
                     </div>
 
-                    {{-- Image Preview --}}
                     <div id="imagePreview" class="mb-3 text-center d-none">
                         <p class="text-muted small mb-1">Image Preview:</p>
                         <img id="previewImg" src="" alt="Preview"
