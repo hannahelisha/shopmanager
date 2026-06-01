@@ -11,7 +11,6 @@
 </div>
             <div class="card-body p-4">
 
-                {{-- Error Messages --}}
                 @if($errors->any())
                     <div class="alert alert-danger">
                         <ul class="mb-0">
@@ -68,7 +67,6 @@
     </div>
 </div>
 
-{{-- Toast Notification --}}
 @if(session('success'))
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
     <div id="successToast" class="toast show align-items-center text-white border-0" 
