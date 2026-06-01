@@ -8,31 +8,30 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    // Show all users
+    // to show all users
     public function index()
     {
         $users = User::latest()->get();
         return view('users.index', compact('users'));
     }
 
-    // Show create form
     public function create()
     {
         return view('users.create');
     }
 
-    // Store new user
+    // new user
     public function store(Request $request)
     {
         $request->validate([
-            'name'     => 'required',
-            'email'    => 'required|email|unique:users',
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
 
         User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
+            'name' => $request->name,
+            'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
@@ -40,22 +39,22 @@ class UserController extends Controller
             ->with('success', 'User added successfully!');
     }
 
-    // Show edit form
+    // edit form
     public function edit(User $user)
     {
         return view('users.edit', compact('user'));
     }
 
-    // Update user
+    // update user
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name'  => 'required',
+            'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $user->id,
         ]);
 
         $user->update([
-            'name'  => $request->name,
+            'name' => $request->name,
             'email' => $request->email,
         ]);
 
@@ -63,7 +62,7 @@ class UserController extends Controller
             ->with('success', 'User updated successfully!');
     }
 
-    // Delete user
+    // delete user
     public function destroy(User $user)
     {
         $user->delete();
