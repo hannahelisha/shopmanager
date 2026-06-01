@@ -8,47 +8,47 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    // Show only logged-in user's products
+    // to show ONLY yung naglog na user's products
     public function index()
     {
         $products = Product::where('user_id', Auth::id())->latest()->get();
         return view('products.index', compact('products'));
     }
 
-    // Show create form
+    // show ang create form
     public function create()
     {
         return view('products.create');
     }
 
-    // Store new product
+    // store new product
     public function store(Request $request)
     {
         $request->validate([
-            'name'        => 'required',
-            'price'       => 'required|numeric',
-            'stock'       => 'required|integer|min:0',
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'stock' => 'required|integer|min:0',
             'description' => 'nullable',
-            'image'       => 'nullable|url',
+            'image' => 'nullable|url',
         ]);
 
         Product::create([
-            'user_id'     => Auth::id(),
-            'name'        => $request->name,
-            'price'       => $request->price,
-            'stock'       => $request->stock,
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+            'price' => $request->price,
+            'stock' => $request->stock,
             'description' => $request->description,
-            'image'       => $request->image,
+            'image' => $request->image,
         ]);
 
         return redirect()->route('products.index')
             ->with('success', 'Ice cream flavor added successfully! 🍦');
     }
 
-    // Show edit form
+    // show edit form
     public function edit(Product $product)
     {
-        // Make sure user can only edit their own products
+        // para user lang maka-edit ng own product nila..
         if ($product->user_id !== Auth::id()) {
             return redirect()->route('products.index')
                 ->with('error', 'Unauthorized action!');
@@ -56,39 +56,39 @@ class ProductController extends Controller
         return view('products.edit', compact('product'));
     }
 
-    // Update product
+    // update product
     public function update(Request $request, Product $product)
     {
-        // Make sure user can only update their own products
+        // para user lang maka-update ng own prodyct nila
         if ($product->user_id !== Auth::id()) {
             return redirect()->route('products.index')
                 ->with('error', 'Unauthorized action!');
         }
 
         $request->validate([
-            'name'        => 'required',
-            'price'       => 'required|numeric',
-            'stock'       => 'required|integer|min:0',
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'stock' => 'required|integer|min:0',
             'description' => 'nullable',
-            'image'       => 'nullable|url',
+            'image' => 'nullable|url',
         ]);
 
         $product->update([
-            'name'        => $request->name,
-            'price'       => $request->price,
-            'stock'       => $request->stock,
+            'name' => $request->name,
+            'price' => $request->price,
+            'stock' => $request->stock,
             'description' => $request->description,
-            'image'       => $request->image,
+            'image' => $request->image,
         ]);
 
         return redirect()->route('products.index')
             ->with('success', 'Ice cream flavor updated successfully! 🍦');
     }
 
-    // Delete product
+    // delete product
     public function destroy(Product $product)
     {
-        // Make sure user can only delete their own products
+        // para user lang maka-delete ng product nila woot woot
         if ($product->user_id !== Auth::id()) {
             return redirect()->route('products.index')
                 ->with('error', 'Unauthorized action!');
